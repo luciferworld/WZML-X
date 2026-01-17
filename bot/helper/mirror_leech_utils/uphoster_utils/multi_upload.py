@@ -10,6 +10,9 @@ from bot.helper.mirror_leech_utils.uphoster_utils.buzzheavier_utils.upload impor
 from bot.helper.mirror_leech_utils.uphoster_utils.pixeldrain_utils.upload import (
     PixelDrainUpload,
 )
+from bot.helper.mirror_leech_utils.uphoster_utils.vikingfile_utils.upload import (
+    VikingFileUpload,
+)
 
 LOGGER = getLogger(__name__)
 
@@ -36,6 +39,10 @@ class MultiUphosterUpload:
             elif service == "pixeldrain":
                 self.uploaders.append(
                     PixelDrainUpload(ProxyListener(self, "pixeldrain"), path)
+                )
+            elif service == "vikingfile":
+                self.uploaders.append(
+                    VikingFileUpload(ProxyListener(self, "vikingfile"), path)
                 )
 
     @property
